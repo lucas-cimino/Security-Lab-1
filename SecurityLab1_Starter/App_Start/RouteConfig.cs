@@ -16,7 +16,14 @@ namespace SecurityLab1_Starter
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { controller = "Home|Inventory", action = "Index|About|Contact" }
+            );
+
+            routes.MapRoute(
+                name: "CatchAll",
+                url: "{*any}",
+                defaults: new { controller = "Error", action = "NotFound" }
             );
         }
     }

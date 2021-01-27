@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,9 @@ namespace SecurityLab1_Starter.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+            //Read the balue from the config file.
+            var appSettings = ConfigurationManager.AppSettings;
+            var colour = appSettings["colour"];
             return View();
         }
 
